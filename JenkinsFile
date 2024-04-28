@@ -36,7 +36,6 @@ pipeline{
                }
              stage("Deploy Image to Hub") {
                       steps {
-
                           withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
                               bat "docker login -u ruchichachriya -p ${dp}"
                               bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
@@ -46,13 +45,13 @@ pipeline{
                   }
              stage("Deploy to kubernetes"){
                      steps{
-                      bat 'kubectl apply -f k8-file.yaml'
+                      bat "kubectl apply -f k8-file.yaml"
             }
         }
 
             stage("Verify Deployment"){
                      steps{
-                      bat 'kubectl get pods'
+                      bat "kubectl get pods"
             }
         }
     }
