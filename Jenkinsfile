@@ -36,7 +36,6 @@ pipeline{
                }
         stage("Deploy Image to Hub") {
                       steps {
-
                           withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
                               bat "docker login -u ruchichachriya -p ${dp}"
                               bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
