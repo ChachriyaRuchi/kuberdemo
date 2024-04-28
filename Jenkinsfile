@@ -34,7 +34,7 @@ pipeline{
                        }
                    }
                }
-        stage("Deploy Image to Hub") {
+        stage("Deploy Image at Hub") {
                       steps {
                           withCredentials([string(credentialsId: 'dp', variable: 'dp')]) {
                               bat "docker login -u ruchichachriya -p ${dp}"
