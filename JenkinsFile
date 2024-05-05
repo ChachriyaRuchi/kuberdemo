@@ -50,6 +50,7 @@ pipeline{
                                 bat """powershell -Command "(Get-Content k8-file.yaml) -replace 'image: .*', 'image: ${IMAGE_NAME}:${IMAGE_TAG}' | Set-Content k8-file.yaml" """
                                 bat 'kubectl apply -f k8-file.yaml'
                                          }
+                                         }
             }
         }
 
