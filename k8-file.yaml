@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: user-app
+  name: user-application
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: user-svc-deployment
-  namespace: user-app
+  namespace: user-application
 spec:
   selector:
     matchLabels:
@@ -30,7 +30,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: userapp-service
-  namespace: user-app
+  namespace: user-application
 spec:
   selector:
     app: spring-boot-k8s
